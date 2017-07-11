@@ -1,0 +1,21 @@
+#Philosopers influenced
+SELECT ?influenced_byLabel ?itemLabel  WHERE {
+  ?item wdt:P106 wd:Q4964182.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+  OPTIONAL { ?item wdt:P737 ?influenced_by. }
+}
+LIMIT 20
+
+
+#Philosopers birth death
+SELECT ?itemLabel ?date_of_birth ?date_of_death WHERE {
+  ?item wdt:P106 wd:Q4964182.
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". }
+  OPTIONAL { ?item wdt:P569 ?date_of_birth. }
+  OPTIONAL { ?item wdt:P570 ?date_of_death. }
+}
+
+
+
+
+
