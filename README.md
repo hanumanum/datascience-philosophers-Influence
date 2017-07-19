@@ -1,1 +1,1 @@
-echo # datascience-philosophers-Influence
+Experiment with philosopers cross influence visualization 
