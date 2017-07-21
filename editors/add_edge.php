@@ -1,16 +1,18 @@
 <?php
-	if(isset($_POST["source"])){
+	if(isset($_POST["source"]) && isset($_POST["target"])){
 		$source = addslashes(trim($_POST["source"]));
 		$target = addslashes(trim($_POST["target"]));
+		if($source!="" && $target!=""){
+			$sql = "INSERT INTO `influences` (`source`,`target`)
+					VALUES ('$source','$target');";
+			
+			$conn = mysqli_connect("localhost","root","root","philos");
+			mysqli_set_charset($conn,'utf8');
+			$res = mysqli_query($conn,$sql);
+			echo mysqli_error($conn);
+			mysqli_close($conn);				
 
-		$sql = "INSERT INTO `influences` (`source`,`target`)
-				VALUES ('$source','$target');";
-		
-		$conn = mysqli_connect("localhost","root","root","philos");
-		mysqli_set_charset($conn,'utf8');
-		$res = mysqli_query($conn,$sql);
-		echo mysqli_error($conn);
-		mysqli_close($conn);				
+		}
 	}
 
 ?>
